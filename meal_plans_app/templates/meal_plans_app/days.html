@@ -1,0 +1,17 @@
+{% extends "meal_plans_app/base.html" %}
+
+{% block content %}
+
+<div class="bg-white shadow-md rounded-lg p-6">
+<p class="text-2xl font-bold mb-4 text-center">DNI:</p>
+<ul>
+    {% for day in days %}
+        <li class="text-center">
+            <a class="text-lg mb-4" href="{% url 'meal_plans_app:day' day.id %}">{{ day }}</a>
+        </li>
+    {% empty %}
+        <li>Nie ma żadnych dni</li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock content %}

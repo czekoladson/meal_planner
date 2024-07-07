@@ -1,0 +1,23 @@
+{% extends 'meal_plans_app/base.html' %}
+
+{% block content %}
+
+<div class="bg-white shadow-md rounded-lg p-6">
+    <p class="text-2xl font-bold mb-4 text-center">Dzień: {{ day }}</p>
+
+    <p class="text-lg mb-4">Dieta na dziś:</p>
+
+    <ul class="list-disc list-inside">
+        {% for entry in entries %}
+        <li class="mb-4">
+            <p class="text-xl text-gray-800">{{ entry.text|linebreaks }}</p>
+        </li>
+        {% empty %}
+        <li>
+            <p class="text-lg text-red-500">Nie znaleziono wpisu</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}
